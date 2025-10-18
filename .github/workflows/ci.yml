@@ -31,14 +31,14 @@ jobs:
 
   UAT:
     runs-on: self-hosted
-    needs: UAT
+    needs: QA
     steps:
       - uses: actions/checkout@v4
       - run: echo hi
 
   PROD:
     runs-on: self-hosted
-    needs: PROD
+    needs: UAT
     steps:
       - uses: actions/checkout@v4
       - run: echo hi
