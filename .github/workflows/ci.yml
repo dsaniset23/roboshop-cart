@@ -1,0 +1,44 @@
+name: Cart CI pipeline
+on: [ push ]
+run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo hi
+
+  tests:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo hi
+
+  DEV:
+    runs-on: self-hosted
+    needs: tests
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo hi
+
+  QA:
+    runs-on: self-hosted
+    needs: DEV
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo hi
+
+  UAT:
+    runs-on: self-hosted
+    needs: UAT
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo hi
+
+  PROD:
+    runs-on: self-hosted
+    needs: PROD
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo hi
