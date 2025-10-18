@@ -1,6 +1,10 @@
+
 name: Cart CI pipeline
-on: [ push ]
-run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
+on:
+  push:
+    branches:
+      - 'main'
+run-name: ${{ github.sha }}-${{ github.event.head_commit.message }}
 jobs:
   build:
     runs-on: self-hosted
