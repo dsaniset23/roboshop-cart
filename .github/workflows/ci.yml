@@ -6,39 +6,45 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
-      - run: echo hi
+      - run: |
+          echo
 
   tests:
     runs-on: self-hosted
     needs: build
     steps:
       - uses: actions/checkout@v4
-      - run: echo hi
+      - run: |
+          echo
 
   DEV:
     runs-on: self-hosted
     needs: tests
     steps:
       - uses: actions/checkout@v4
-      - run: echo hi
+      - run: |
+          echo
 
   QA:
     runs-on: self-hosted
     needs: DEV
     steps:
       - uses: actions/checkout@v4
-      - run: echo hi
+      - run: |
+          echo
 
   UAT:
     runs-on: self-hosted
     needs: QA
     steps:
       - uses: actions/checkout@v4
-      - run: echo hi
+      - run: |
+          echo
 
   PROD:
     runs-on: self-hosted
     needs: UAT
     steps:
       - uses: actions/checkout@v4
-      - run: echo hi
+      - run: |
+          echo
