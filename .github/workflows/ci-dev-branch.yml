@@ -1,0 +1,31 @@
+name: Cart CI pipeline for dev branch
+on:
+  push:
+    branches:
+      - '*'
+      - '!main'
+run-name: ${{ github.sha }} | ${{ github.event.head_commit.message }}
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          echo
+
+  tests:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          echo
+
+  dev:
+    runs-on: self-hosted
+    needs: tests
+    environment: DEV
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          echo
