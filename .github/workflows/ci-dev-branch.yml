@@ -1,5 +1,7 @@
 name: Cart CI pipeline for dev branch
 on:
+  schedule:
+    - cron: "0 3 * * *"
   workflow_dispatch:
   push:
     branches:
